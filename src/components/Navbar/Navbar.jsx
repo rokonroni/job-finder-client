@@ -1,4 +1,5 @@
-import logo from "../../assets/logo.png"
+import { Link } from "react-router-dom";
+import logo from "../../assets/logo.png";
 import NavLinks from "../NavLinks/NavLinks";
 const Navbar = () => {
   return (
@@ -25,13 +26,19 @@ const Navbar = () => {
         </label>
       </div>
       <div className="flex-1 px-2 mx-2  ">
-        <img className="w-16" src={logo} alt="" />
-        <h2 className="font-bold text-3xl ml-3 text-red-500">Job <span className="text-blue-500">Finder</span></h2>
+        <Link to="/">
+          <img className="w-16" src={logo} alt="" />
+        </Link>
+        <Link to="/">
+          <h2 className="font-bold text-3xl ml-3 text-red-500">
+            Job <span className="text-blue-500">Finder</span>
+          </h2>
+        </Link>
       </div>
       <div className="flex-none hidden lg:block">
         <ul className="menu menu-horizontal">
           {/* Navbar menu content here */}
-          <NavLinks/>
+          <NavLinks />
         </ul>
       </div>
     </div>

@@ -3,7 +3,7 @@ import NavLinks from "../NavLinks/NavLinks";
 
 const Sidebar = () => {
     return (
-       <div className="drawer-side">
+       <div className="drawer-side z-20">
           <label
             htmlFor="my-drawer-3"
             aria-label="close sidebar"

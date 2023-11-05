@@ -24,7 +24,7 @@ const NavLinks = () => {
       </li>
       <li>
         <NavLink
-          to="/addProduct"
+          to="/allJobs"
           className={({ isActive, isPending }) =>
             isPending
               ? "bg-none"
@@ -68,7 +68,7 @@ const NavLinks = () => {
           </li>
           <li>
             <NavLink
-              to="/addProduct"
+              to="/addJob"
               className={({ isActive, isPending }) =>
                 isPending
                   ? "bg-none"
@@ -85,7 +85,7 @@ const NavLinks = () => {
 
       <li>
         <NavLink
-          to="/addProduct"
+          to="/blogs"
           className={({ isActive, isPending }) =>
             isPending
               ? "bg-none"
