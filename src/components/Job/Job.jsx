@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -19,8 +18,7 @@ const Job = ({ job }) => {
 
   const handleViewDetails = () => {
     if (user) {
-      // Redirect the user to the job details page
-      window.location.href = `/jobDetails/${_id}`;
+      window.location.href = `/job/${_id}`;
     } else {
       Swal.fire({
         icon: "error",

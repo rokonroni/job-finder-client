@@ -34,6 +34,7 @@ const router = createBrowserRouter([
       {
         path: "allJobs",
         element: <AllJobs />,
+        loader: () => fetch("https://job-finder-server-tau.vercel.app/allJobs"),
       },
       {
         path: "addJob",
@@ -41,14 +42,14 @@ const router = createBrowserRouter([
       },
       {
         path: "appliedJobs",
-        element: <PrivateRoute><AppliedJobs /></PrivateRoute>,
+        element: <PrivateRoute><AppliedJobs/></PrivateRoute>,
       },
       {
         path: "myJobs",
         element: <PrivateRoute><MyJobs /></PrivateRoute>,
       },
       {
-        path: "jobDetails/:id",
+        path: "job/:id",
         element: <PrivateRoute><JobDetails /></PrivateRoute>,
         loader: ({ params }) =>fetch(`https://job-finder-server-tau.vercel.app/jobDetails/${[params.id]}`),
       },
