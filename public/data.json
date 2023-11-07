@@ -1,0 +1,302 @@
+[
+  {
+    "name": "companya",
+    "jobTitle": "Software Engineer",
+    "jobCategory": "On Site Job",
+    "jobPostingDate": "2023-11-01",
+    "applicationDeadline": "2023-11-15",
+    "salaryRange": "$80,000 - $100,000",
+    "jobApplicantsNumber": 50,
+    "jobDescription": "Company A is looking for a highly skilled software engineer to join our team. You will be responsible for developing and maintaining software applications, collaborating with cross-functional teams, and delivering high-quality code. As a software engineer at Company A, you will have the opportunity to work on cutting-edge technologies and innovative projects that have a real impact."
+  },
+  {
+    "name": "companyb",
+    "jobTitle": "Marketing Manager",
+    "jobCategory": "Remote Job",
+    "jobPostingDate": "2023-10-15",
+    "applicationDeadline": "2023-11-30",
+    "salaryRange": "$60,000 - $80,000",
+    "jobApplicantsNumber": 35,
+    "jobDescription": "Company B is seeking an experienced marketing manager to oversee our marketing efforts. You will develop and execute marketing strategies, analyze market trends, and manage a marketing team. As a Marketing Manager at Company B, you will have the opportunity to shape our brand and drive business growth through creative and data-driven marketing campaigns."
+  },
+  {
+    "name": "companyc",
+    "jobTitle": "Data Analyst",
+    "jobCategory": "Hybrid",
+    "jobPostingDate": "2023-10-20",
+    "applicationDeadline": "2023-11-10",
+    "salaryRange": "$50,000 - $70,000",
+    "jobApplicantsNumber": 40,
+    "jobDescription": "Company C is hiring a data analyst to work with large datasets, generate insights, and support data-driven decision-making. You'll collaborate with the data team and stakeholders to analyze and present data findings."
+  },
+  {
+    "name": "companyd",
+    "jobTitle": "Content Writer",
+    "jobCategory": "Part Time",
+    "jobPostingDate": "2023-11-05",
+    "applicationDeadline": "2023-11-20",
+    "salaryRange": "$20,000 - $30,000",
+    "jobApplicantsNumber": 25,
+    "jobDescription": "Company D is looking for a part-time content writer to create engaging and informative content for our blog and social media channels. You'll have the flexibility to work remotely and contribute to our content strategy."
+  },
+  {
+    "name": "companye",
+    "jobTitle": "UX Designer",
+    "jobCategory": "On Site Job",
+    "jobPostingDate": "2023-11-10",
+    "applicationDeadline": "2023-11-25",
+    "salaryRange": "$70,000 - $90,000",
+    "jobApplicantsNumber": 30,
+    "jobDescription": "Company E is searching for a talented UX Designer to create intuitive and visually appealing user interfaces. You'll collaborate with cross-functional teams, conduct user research, and iterate on designs to deliver exceptional user experiences."
+  },
+  {
+    "name": "companyf",
+    "jobTitle": "Project Manager",
+    "jobCategory": "Hybrid",
+    "jobPostingDate": "2023-11-15",
+    "applicationDeadline": "2023-12-01",
+    "salaryRange": "$75,000 - $95,000",
+    "jobApplicantsNumber": 45,
+    "jobDescription": "Company F is in need of a Project Manager to oversee and execute various projects. You will work both on-site and remotely, collaborating with teams, tracking project progress, and ensuring timely delivery."
+  },
+  {
+    "name": "companyg",
+    "jobTitle": "Accountant",
+    "jobCategory": "On Site Job",
+    "jobPostingDate": "2023-11-12",
+    "applicationDeadline": "2023-11-27",
+    "salaryRange": "$55,000 - $70,000",
+    "jobApplicantsNumber": 28,
+    "jobDescription": "Company G is hiring an on-site accountant to manage financial records, reconcile accounts, and prepare financial statements. You'll be an essential part of our finance team, ensuring accuracy and compliance."
+  },
+  {
+    "name": "companyh",
+    "jobTitle": "Customer Support Representative",
+    "jobCategory": "Remote Job",
+    "jobPostingDate": "2023-11-18",
+    "applicationDeadline": "2023-12-03",
+    "salaryRange": "$40,000 - $50,000",
+    "jobApplicantsNumber": 20,
+    "jobDescription": "Company H is seeking a remote customer support representative to assist customers via email and chat. You'll provide excellent service, resolve inquiries, and contribute to customer satisfaction."
+  },
+  {
+    "name": "companyi",
+    "jobTitle": "Graphic Designer",
+    "jobCategory": "Hybrid",
+    "jobPostingDate": "2023-11-21",
+    "applicationDeadline": "2023-12-06",
+    "salaryRange": "$45,000 - $60,000",
+    "jobApplicantsNumber": 22,
+    "jobDescription": "Company I is looking for a graphic designer to create visually stunning designs for both digital and print. You'll have the flexibility to work remotely and in the office, collaborating with marketing and creative teams."
+  },
+  {
+    "name": "companyj",
+    "jobTitle": "Sales Manager",
+    "jobCategory": "On Site Job",
+    "jobPostingDate": "2023-11-24",
+    "applicationDeadline": "2023-12-09",
+    "salaryRange": "$70,000 - $90,000",
+    "jobApplicantsNumber": 32,
+    "jobDescription": "Company J is hiring a sales manager to lead our sales team and drive revenue growth. You will work on-site, set sales targets, mentor sales representatives, and implement sales strategies."
+  },
+  {
+    "name": "companyk",
+    "jobTitle": "Data Scientist",
+    "jobCategory": "On Site Job",
+    "jobPostingDate": "2023-11-28",
+    "applicationDeadline": "2023-12-13",
+    "salaryRange": "$90,000 - $110,000",
+    "jobApplicantsNumber": 38,
+    "jobDescription": "Company K is seeking a data scientist to analyze data, develop models, and provide data-driven insights. You will work on-site, collaborate with the data team, and support decision-making with your expertise."
+  },
+  {
+    "name": "companyl",
+    "jobTitle": "HR Manager",
+    "jobCategory": "Remote Job",
+    "jobPostingDate": "2023-12-01",
+    "applicationDeadline": "2023-12-16",
+    "salaryRange": "$65,000 - $85,000",
+    "jobApplicantsNumber": 28,
+    "jobDescription": "Company L is looking for an HR Manager to manage human resources functions, including recruitment, employee relations, and policy development. This position is remote, providing flexibility in your work location."
+  },
+  {
+    "name": "companym",
+    "jobTitle": "Product Manager",
+    "jobCategory": "Hybrid",
+    "jobPostingDate": "2023-12-05",
+    "applicationDeadline": "2023-12-20",
+    "salaryRange": "$85,000 - $105,000",
+    "jobApplicantsNumber": 42,
+    "jobDescription": "Company M is in search of a product manager to oversee the development and launch of new products. This role is hybrid, allowing you to work both in the office and remotely, collaborating with cross-functional teams."
+  },
+  {
+    "name": "companyn",
+    "jobTitle": "Quality Assurance Analyst",
+    "jobCategory": "On Site Job",
+    "jobPostingDate": "2023-12-08",
+    "applicationDeadline": "2023-12-23",
+    "salaryRange": "$55,000 - $70,000",
+    "jobApplicantsNumber": 30,
+    "jobDescription": "Company N is hiring a quality assurance analyst to ensure the quality and functionality of our software products. You will work on-site, create test plans, and perform testing to deliver high-quality software."
+  },
+  {
+    "name": "companyo",
+    "jobTitle": "Financial Analyst",
+    "jobCategory": "Part Time",
+    "jobPostingDate": "2023-12-12",
+    "applicationDeadline": "2023-12-27",
+    "salaryRange": "$25,000 - $35,000",
+    "jobApplicantsNumber": 18,
+    "jobDescription": "Company O is looking for a part-time financial analyst to analyze financial data, create reports, and provide insights. You will have a flexible work schedule and the opportunity to work remotely."
+  },
+  {
+    "name": "companyp",
+    "jobTitle": "Frontend Developer",
+    "jobCategory": "On Site Job",
+    "jobPostingDate": "2023-12-15",
+    "applicationDeadline": "2023-12-30",
+    "salaryRange": "$70,000 - $90,000",
+    "jobApplicantsNumber": 25,
+    "jobDescription": "Company P is seeking a frontend developer to create engaging and responsive web interfaces. You will work on-site, collaborate with the development team, and contribute to the user experience of our web applications."
+  },
+  {
+    "name": "companyq",
+    "jobTitle": "UX Researcher",
+    "jobCategory": "Hybrid",
+    "jobPostingDate": "2023-12-18",
+    "applicationDeadline": "2024-01-02",
+    "salaryRange": "$60,000 - $80,000",
+    "jobApplicantsNumber": 22,
+    "jobDescription": "Company Q is looking for a UX researcher to conduct user research, gather insights, and inform product design decisions. This role is hybrid, allowing you to work both on-site and remotely, contributing to the user-centered design process."
+  },
+  {
+    "name": "companyr",
+    "jobTitle": "Software Quality Engineer",
+    "jobCategory": "Remote Job",
+    "jobPostingDate": "2023-12-21",
+    "applicationDeadline": "2024-01-06",
+    "salaryRange": "$65,000 - $85,000",
+    "jobApplicantsNumber": 28,
+    "jobDescription": "Company R is in need of a remote software quality engineer to ensure the quality and reliability of our software products. You will create test plans, perform testing, and contribute to the delivery of high-quality software."
+  },
+  {
+    "name": "companys",
+    "jobTitle": "Business Analyst",
+    "jobCategory": "Hybrid",
+    "jobPostingDate": "2023-12-24",
+    "applicationDeadline": "2024-01-09",
+    "salaryRange": "$55,000 - $75,000",
+    "jobApplicantsNumber": 32,
+    "jobDescription": "Company S is hiring a business analyst to analyze business processes, identify opportunities for improvement, and support decision-making. This role is hybrid, allowing you to work both on-site and remotely."
+  },
+  {
+    "name": "companyt",
+    "jobTitle": "Network Engineer",
+    "jobCategory": "On Site Job",
+    "jobPostingDate": "2023-12-28",
+    "applicationDeadline": "2024-01-13",
+    "salaryRange": "$75,000 - $95,000",
+    "jobApplicantsNumber": 35,
+    "jobDescription": "Company T is seeking a network engineer to design, implement, and maintain network infrastructure. You will work on-site, collaborate with IT teams, and ensure the stability and security of our network."
+  },
+  {
+    "name": "companyu",
+    "jobTitle": "Product Designer",
+    "jobCategory": "Remote Job",
+    "jobPostingDate": "2024-01-02",
+    "applicationDeadline": "2024-01-17",
+    "salaryRange": "$70,000 - $90,000",
+    "jobApplicantsNumber": 30,
+    "jobDescription": "Company U is looking for a remote product designer to create user-centered and visually appealing product designs. You will collaborate with cross-functional teams, conduct user research, and iterate on designs to enhance the user experience."
+  },
+  {
+    "name": "companyv",
+    "jobTitle": "Sales Representative",
+    "jobCategory": "On Site Job",
+    "jobPostingDate": "2024-01-05",
+    "applicationDeadline": "2024-01-20",
+    "salaryRange": "$50,000 - $65,000",
+    "jobApplicantsNumber": 25,
+    "jobDescription": "Company V is hiring an on-site sales representative to build and maintain customer relationships, sell products, and achieve sales targets. You'll be a key part of our sales team, ensuring customer satisfaction."
+  },
+  {
+    "name": "companyw",
+    "jobTitle": "Software Architect",
+    "jobCategory": "Hybrid",
+    "jobPostingDate": "2024-01-08",
+    "applicationDeadline": "2024-01-23",
+    "salaryRange": "$100,000 - $120,000",
+    "jobApplicantsNumber": 40,
+    "jobDescription": "Company W is seeking a software architect to design software systems, lead development efforts, and ensure scalability and performance. This role is hybrid, offering flexibility in your work location."
+  },
+  {
+    "name": "companyx",
+    "jobTitle": "Data Engineer",
+    "jobCategory": "On Site Job",
+    "jobPostingDate": "2024-01-11",
+    "applicationDeadline": "2024-01-26",
+    "salaryRange": "$80,000 - $100,000",
+    "jobApplicantsNumber": 35,
+    "jobDescription": "Company X is hiring an on-site data engineer to build and maintain data pipelines, work with big data, and support data analytics. You'll be a vital part of our data team, ensuring data availability and quality."
+  },
+  {
+    "name": "companyy",
+    "jobTitle": "Customer Success Manager",
+    "jobCategory": "Remote Job",
+    "jobPostingDate": "2024-01-14",
+    "applicationDeadline": "2024-01-29",
+    "salaryRange": "$70,000 - $90,000",
+    "jobApplicantsNumber": 30,
+    "jobDescription": "Company Y is looking for a remote customer success manager to engage with and support customers, ensure satisfaction, and drive customer retention. You'll work with customers to achieve their goals and address their needs."
+  },
+  {
+    "name": "companyz",
+    "jobTitle": "DevOps Engineer",
+    "jobCategory": "Hybrid",
+    "jobPostingDate": "2024-01-17",
+    "applicationDeadline": "2024-02-01",
+    "salaryRange": "$85,000 - $105,000",
+    "jobApplicantsNumber": 42,
+    "jobDescription": "Company Z is seeking a DevOps engineer to automate and streamline our development and deployment processes. This role is hybrid, offering a mix of on-site and remote work, collaborating with development and IT teams."
+  },
+  {
+    "name": "companyaa",
+    "jobTitle": "Content Marketing Specialist",
+    "jobCategory": "On Site Job",
+    "jobPostingDate": "2024-01-20",
+    "applicationDeadline": "2024-02-05",
+    "salaryRange": "$60,000 - $80,000",
+    "jobApplicantsNumber": 28,
+    "jobDescription": "Company AA is hiring an on-site content marketing specialist to create and execute content marketing strategies. You'll work closely with the marketing team, produce content, and engage with the target audience to drive brand awareness."
+  },
+  {
+    "name": "companybb",
+    "jobTitle": "Systems Administrator",
+    "jobCategory": "Part Time",
+    "jobPostingDate": "2024-01-23",
+    "applicationDeadline": "2024-02-08",
+    "salaryRange": "$30,000 - $40,000",
+    "jobApplicantsNumber": 18,
+    "jobDescription": "Company BB is looking for a part-time systems administrator to manage and maintain IT systems and infrastructure. You'll have a flexible work schedule and the opportunity to work remotely to ensure the reliability and security of our systems."
+  },
+  {
+    "name": "companycc",
+    "jobTitle": "Legal Counsel",
+    "jobCategory": "On Site Job",
+    "jobPostingDate": "2024-01-26",
+    "applicationDeadline": "2024-02-11",
+    "salaryRange": "$90,000 - $110,000",
+    "jobApplicantsNumber": 38,
+    "jobDescription": "Company CC is hiring an on-site legal counsel to provide legal guidance, draft and review contracts, and support legal matters. You'll be a crucial part of our legal team, ensuring compliance and mitigating risks."
+  },
+  {
+    "name": "companydd",
+    "jobTitle": "UX/UI Designer",
+    "jobCategory": "Remote Job",
+    "jobPostingDate": "2024-01-29",
+    "applicationDeadline": "2024-02-14",
+    "salaryRange": "$75,000 - $95,000",
+    "jobApplicantsNumber": 35,
+    "jobDescription": "Company DD is seeking a remote UX/UI designer to create intuitive and visually appealing user interfaces. You will work closely with cross-functional teams, conduct user research, and design user-friendly interfaces that enhance the user experience."
+  }
+]
