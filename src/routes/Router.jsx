@@ -11,6 +11,7 @@ import MyJobs from "../pages/MyJobs/MyJobs";
 import Blogs from "../pages/Blogs/Blogs";
 import PrivateRoute from "./PrivateRoute";
 import JobDetails from "../pages/JobDetails/JobDetails";
+import UpdateJob from "../pages/UpdateJob/UpdateJob";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,11 @@ const router = createBrowserRouter([
         path: "job/:id",
         element: <PrivateRoute><JobDetails /></PrivateRoute>,
         loader: ({ params }) =>fetch(`https://job-finder-server-tau.vercel.app/jobDetails/${[params.id]}`),
+      },
+      {
+        path: "job/update/:id",
+        element: <PrivateRoute><UpdateJob/></PrivateRoute>,
+        loader: ({ params }) =>fetch(`https://job-finder-server-tau.vercel.app/jobDetails/${[params.id]}`)
       },
       {
         path: "blogs",

@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-const MyJob = ({job}) => {
+import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+const MyJob = ({job, myJobs, setMyJobs}) => {
     const {
     _id,
-    name,
     jobTitle,
     jobCategory,
     jobPostingDate,
@@ -10,12 +11,42 @@ const MyJob = ({job}) => {
     salaryRange,
     jobApplicantsNumber,
   } = job;
-  const handleUpdate = (id) =>{
-
-  }
-  const handleDelete = (id) =>{
-    
-  }
+  const formattedJobPostingDate = new Date(jobPostingDate).toLocaleDateString("en-GB", {
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
+  const formattedApplicationDeadline = new Date(applicationDeadline).toLocaleDateString("en-GB", {
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
+  console.log(formattedJobPostingDate);
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://job-finder-server-tau.vercel.app/myJobs/job/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              const remaining = myJobs.filter(prod=>prod._id !==_id);
+              setMyJobs(remaining);
+            }
+          });
+      }
+    });
+  };
     return (
         <div className="rounded-md w-full bg-white px-4 py-4 shadow-md transition transform duration-500 cursor-pointer">
         <div className="flex flex-col justify-start">
@@ -46,11 +77,11 @@ const MyJob = ({job}) => {
               {salaryRange}
             </p>
             <p>
-              <span className="font-bold">Job Post: </span> {jobPostingDate}
+              <span className="font-bold">Job Post: </span> {formattedJobPostingDate}
             </p>
             <p>
               <span className="font-bold">Deadline: </span>{" "}
-              {applicationDeadline}
+              {formattedApplicationDeadline}
             </p>
             <p>
               <span className="font-bold">Total Applicant : </span>{" "}
@@ -59,15 +90,17 @@ const MyJob = ({job}) => {
           </div>
           <div>
             <div className="mt-5 text-center flex flex-col md:flex-row  lg:flex-row ">
-              <button
-                onClick={()=>handleUpdate(_id)}
-                className="mr-2 my-1 uppercase tracking-wider px-2 text-indigo-600 border-indigo-600 hover:bg-indigo-600 hover:text-white border text-sm font-semibold rounded py-1 transition transform duration-500 w-1/2 cursor-pointer"
+             <Link 
+             to={`/job/update/${_id}`}
+             className='my-1 mr-2 w-1/2 px-2 py-1 uppercase tracking-wider  text-indigo-600 border-indigo-600 hover:bg-indigo-600 hover:text-white border text-sm font-semibold rounded transition transform duration-500 cursor-pointer'>
+               <button
               >
                 Update
               </button>
+             </Link>
               <button
               onClick={()=>handleDelete(_id)}
-                className="mr-2 my-1 uppercase tracking-wider px-2 text-indigo-600 border-indigo-600 hover:bg-indigo-600 hover:text-white border text-sm font-semibold rounded py-1 transition transform duration-500 w-1/2 cursor-pointer"
+                className="mr-2 my-1 uppercase tracking-wider px-2 text-red-600 border-red-600 hover:bg-red-600 hover:text-white border text-sm font-semibold rounded py-1 transition transform duration-500 w-1/2 cursor-pointer"
               >
                 Delete
               </button>
@@ -78,6 +111,8 @@ const MyJob = ({job}) => {
     );
 };
 MyJob.propTypes = {
-  job: PropTypes.object
+  job: PropTypes.object,
+  myJobs: PropTypes.array,
+  setMyJobs: PropTypes.func
 };
 export default MyJob;
