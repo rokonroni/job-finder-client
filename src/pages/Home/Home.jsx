@@ -17,7 +17,6 @@ const Home = () => {
       const res = await fetch("https://job-finder-server-tau.vercel.app/allJobs")
       return res.json();
     }
-
   })
 
 
