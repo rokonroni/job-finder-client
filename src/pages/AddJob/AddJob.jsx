@@ -28,7 +28,6 @@ const AddJob = () => {
       [field]: date,
     });
   };
-  console.log(jobData);
   const handleSubmit = (e) => {
     e.preventDefault();
 

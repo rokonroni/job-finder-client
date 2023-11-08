@@ -16,7 +16,16 @@ const JobTableRow = ({ job }) => {
     applicationDeadline,
     salaryRange,
   } = job;
-
+  const formattedJobPostingDate = new Date(jobPostingDate).toLocaleDateString("en-GB", {
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
+  const formattedApplicationDeadline = new Date(applicationDeadline).toLocaleDateString("en-GB", {
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
   const handleDetailsClick = () => {
     if (user) {
       window.location.href = `/job/${_id}`;
@@ -36,8 +45,8 @@ const JobTableRow = ({ job }) => {
         </div>
       </td>
       <td>{name}</td>
-      <td>{jobPostingDate}</td>
-      <td>{applicationDeadline}</td>
+      <td>{formattedJobPostingDate}</td>
+      <td>{formattedApplicationDeadline}</td>
       <td>{salaryRange}</td>
       <td>
         <button

@@ -1,13 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import emailjs from "@emailjs/browser";
 
 const JobDetails = () => {
   const { user } = useContext(AuthContext);
+  const form = useRef(); // Reference to the form element
+
   const job = useLoaderData();
   const {
-    _id,
     pictureUrl,
     jobTitle,
     name,
@@ -38,28 +40,65 @@ const JobDetails = () => {
       return;
     }
 
-    if (user.email === job.userEmail) {
+    if (user.email === userEmail) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "You Can not apply your job!",
+        text: "You cannot apply for your own job!",
       });
       return;
     }
-
-    // Show the application modal
     setShowApplicationModal(true);
   };
 
+  const sentEmail = () => {
+    emailjs
+      .sendForm(
+        "service_mb210vg", // Your EmailJS service ID
+        "template_j770bp8", // Your EmailJS template ID
+        form.current, // Reference to the form element
+        "pBykjcJ8wlmCjaBjO" // Your EmailJS public key
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   const handleSubmitApplication = () => {
-    // Send the application data (name, email, resumeLink, job ID) to the server
-    // and save it in a MongoDB collection.
+    const applicationData = {
+      name: user.displayName,
+      userEmail: user.email,
+      jobTitle: jobTitle,
+      resumeLink: resumeLink,
+      job: {job}
+    };
 
-    // After successful submission, set applicationSubmitted to true.
-    setApplicationSubmitted(true);
-
-    // Close the application modal
-    setShowApplicationModal(false);
+    fetch("https://job-finder-server-tau.vercel.app/applyJob", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(applicationData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "You Have Applied this job Successfully",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+          setApplicationSubmitted(true);
+          setShowApplicationModal(false);
+          sentEmail(); // Send the email
+        }
+      });
   };
 
   return (
@@ -83,50 +122,66 @@ const JobDetails = () => {
       ) : (
         <button
           className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4"
-        //   onClick={handleApplyClick}
-          onClick={()=>document.getElementById('modal').showModal()}
+          onClick={() => {
+            handleApplyClick();
+            document.getElementById("modal2123").showModal();
+          }}
         >
           Apply
         </button>
       )}
 
       {showApplicationModal && (
-          <dialog
-            id="modal"
-            className="modal modal-bottom sm:modal-middle"
-          >
-            <div className="modal-box">
-              <h3 className="font-bold text-lg">Fill out your application details:</h3>
-               <div className="mb-4">
-            <label htmlFor="name">Name: </label>
-            <input
-              type="text"
-              id="name"
-              defaultValue={user?.displayName}
-              className="w-full p-2 border"
-            />
-          </div>
-              <input
-              className="border border-gray-300 rounded-md p-2 w-full"
-              type="text"
-              placeholder="Resume Link"
-              value={resumeLink}
-              onChange={(e) => setResumeLink(e.target.value)}
-            />
-              <div className="modal-action">
-                <form method="dialog">
-                  {/* if there is a button in form, it will close the modal */}
-                  <button className="btn">Close</button>
-                  <button
-                    className="btn bg-blue-500 text-white px-4 py-2 rounded-lg mt-2"
-                    onClick={handleSubmitApplication}
-                  >
-                    Submit
-                  </button>
-                </form>
+        <dialog id="modal2123" className="modal modal-bottom sm:modal-middle">
+          <div className="modal-box">
+            <h3 className="font-bold text-lg">
+              Fill out your application details:
+            </h3>
+            <form ref={form} method="dialog"> {/* Form element with a ref */}
+              <div className="mb-4">
+                <label htmlFor="name">Name: </label>
+                <input
+                  type="text"
+                  id="name"
+                  defaultValue={user?.displayName}
+                  name="userName" // Name attribute for EmailJS
+                  className="w-full p-2 border"
+                />
               </div>
+              <div className="mb-4">
+                <label htmlFor="email">Email: </label>
+                <input
+                  type="text"
+                  id="email"
+                  defaultValue={user?.email}
+                  name="userEmail" // Name attribute for EmailJS
+                  className="w-full p-2 border"
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="resume">Resume Link: </label>
+                <input
+                  type="text"
+                  id="resume"
+                  placeholder="Resume Link"
+                  name="resumeLink" // Name attribute for EmailJS
+                  value={resumeLink}
+                  onChange={(e) => setResumeLink(e.target.value)}
+                  className="w-full p-2 border"
+                />
+              </div>
+            </form>
+            <div className="modal-action flex items-center">
+              <button className="btn">Close</button>
+              <button
+                className="btn bg-blue-500 text-white px-4 py-2 rounded-lg"
+                onClick={handleSubmitApplication}
+              >
+                Submit
+              </button>
             </div>
-          </dialog>
+          </div>
+        </dialog>
       )}
     </div>
   );

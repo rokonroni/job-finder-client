@@ -21,7 +21,6 @@ const MyJob = ({job, myJobs, setMyJobs}) => {
   month: "2-digit",
   day: "2-digit",
 });
-  console.log(formattedJobPostingDate);
   const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
