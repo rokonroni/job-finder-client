@@ -3,6 +3,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import MyAppliedJobsTable from "../../components/MyAppliedJobsTable/MyAppliedJobsTable";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const AppliedJobs = () => {
   const { user } = useContext(AuthContext);
@@ -13,12 +14,17 @@ const AppliedJobs = () => {
   const url = `https://job-finder-server-tau.vercel.app/myAppliedJobs?email=${user.email}`;
 
   useEffect(() => {
-    fetch(url,{credentials: "include"})
-      .then((res) => res.json())
-      .then((data) => setMyAppliedJobs(data));
+    axios.get(url, {withCredentials: true})
+    .then((res)=>{
+      setMyAppliedJobs(res.data);
+    })
+    // fetch(url,{credentials: "include"})
+    //   .then((res) => res.json())
+    //   .then((data) => setMyAppliedJobs(data));
   }, [url]);
 
   const handleSearchTermChange = (e) => {
+
     setSearchTerm(e.target.value);
   };
 
@@ -80,12 +86,12 @@ const AppliedJobs = () => {
     return (
       <>
         <Helmet>
-          <title>Job Finder || My Jobs</title>
+          <title>Job Finder || Applied Jobs</title>
         </Helmet>
         <div className="bg-red-100 border flex items-center justify-center border-red-400 text-red-700 px-4 py-2 rounded relative  min-h-[60vh]" role="alert">
           <div className="flex flex-col justify-center items-center">
             <strong className="font-bold">
-              Error: <span className="block sm:inline"> No jobs applied yet</span>
+              Error: <span className="block sm:inline"> You did not Apply any job yet. </span>
             </strong>
             <Link to="/allJobs">
               <button className="btn btn-info mt-5 text-white font-bold">
