@@ -31,7 +31,7 @@ const UpdateJob = () => {
   };
   const handleUpdate = (e) => {
    e.preventDefault();
-    fetch(`https://job-finder-server-tau.vercel.app/jobUpdate/${job._id},`, {
+    fetch(`https://job-finder-server-tau.vercel.app/jobUpdate/${job._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
