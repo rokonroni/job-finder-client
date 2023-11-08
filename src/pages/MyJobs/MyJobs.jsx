@@ -33,7 +33,7 @@ const MyJobs = () => {
               <th>Job Post</th>
               <th>Deadline</th>
               <th>Salary</th>
-              <th>Total Apllication</th>
+              <th>Total Application</th>
               <th>Actions</th>
             </tr>
           </thead>
