@@ -1,22 +1,21 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Banner from "../../components/Banner/Banner";
-import { useState } from "react";
+import AllTab from "../../components/AllTab/AllTab";
 import AllJobs from "../../components/AllJobs/AllJobs";
 import { useLoaderData } from "react-router-dom";
-import AllTab from "../../components/AllTab/AllTab";
 
 const Home = () => {
   const allJobs = useLoaderData();
   const [searchText, setSearchText] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All Jobs");
-
   const handleSearchCategory = (searchText) => {
     setSearchText(searchText);
   };
 
-  const filteredJobs = allJobs.filter((job) => {
-    return job.jobCategory.toLowerCase().includes(searchText.toLowerCase());
-  });
+ const filteredJobs = allJobs.filter((job) => {
+  return job.jobCategory.toLowerCase().includes(searchText.toLowerCase()) || job.jobCategory.toLowerCase().includes(selectedCategory.toLowerCase())
+});
 
   return (
     <>

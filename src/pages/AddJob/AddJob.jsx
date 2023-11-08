@@ -48,7 +48,6 @@ const AddJob = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
@@ -132,8 +131,8 @@ const AddJob = () => {
               className="w-full p-2 border"
               required
             >
-              <option value="ON SITE JOB">ON SITE JOB</option>
-              <option value="REMOTE JOB">REMOTE JOB</option>
+              <option value="ON SITE">ON SITE JOB</option>
+              <option value="REMOTE">REMOTE JOB</option>
               <option value="HYBRID">HYBRID</option>
               <option value="PART TIME">PART TIME</option>
             </select>

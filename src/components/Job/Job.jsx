@@ -15,7 +15,16 @@ const Job = ({ job }) => {
     salaryRange,
     jobApplicantsNumber,
   } = job;
-
+ const formattedJobPostingDate = new Date(jobPostingDate).toLocaleDateString("en-GB", {
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
+  const formattedApplicationDeadline = new Date(applicationDeadline).toLocaleDateString("en-GB", {
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
   const handleViewDetails = () => {
     if (user) {
       window.location.href = `/job/${_id}`;
@@ -60,11 +69,11 @@ const Job = ({ job }) => {
               {salaryRange}
             </p>
             <p>
-              <span className="font-bold">Job Post: </span> {jobPostingDate}
+              <span className="font-bold">Job Post: </span> {formattedJobPostingDate}
             </p>
             <p>
               <span className="font-bold">Deadline: </span>{" "}
-              {applicationDeadline}
+              {formattedApplicationDeadline}
             </p>
             <p>
               <span className="font-bold">Total Applicant : </span>{" "}

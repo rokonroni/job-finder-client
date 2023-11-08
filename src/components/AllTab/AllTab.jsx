@@ -13,10 +13,10 @@ const AllTab = ({jobs, selectedCategory, setSelectedCategory }) => {
       <Tabs selectedTabClassName="bg-blue-300 rounded-sm font-bold ">
         <TabList className="text-center">
           <Tab onClick={() => handleCategoryChange("All Jobs")}>All Jobs</Tab>
-          <Tab onClick={() => handleCategoryChange("On Site Job")}>On Site Jobs</Tab>
-          <Tab onClick={() => handleCategoryChange("Remote Job")}>Remote Jobs</Tab>
-          <Tab onClick={() => handleCategoryChange("Part Time")}>Part Time Jobs</Tab>
-          <Tab onClick={() => handleCategoryChange("Hybrid")}>Hybrid Jobs</Tab>
+          <Tab onClick={() => handleCategoryChange("On Site")}>On Site Jobs</Tab>
+          <Tab onClick={() => handleCategoryChange("REMOTE")}>Remote Jobs</Tab>
+          <Tab onClick={() => handleCategoryChange("PART TIME")}>Part Time Jobs</Tab>
+          <Tab onClick={() => handleCategoryChange("HYBRID")}>Hybrid Jobs</Tab>
         </TabList>
 
         <TabPanel className="active:bg-red-500">

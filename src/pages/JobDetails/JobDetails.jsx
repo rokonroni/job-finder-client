@@ -1,15 +1,17 @@
-import React, { useContext, useRef, useState } from "react";
-import { useLoaderData } from "react-router-dom";
-import { AuthContext } from "../../providers/AuthProvider";
-import Swal from "sweetalert2";
 import emailjs from "@emailjs/browser";
+import { useContext, useRef, useState, useEffect } from "react";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../providers/AuthProvider";
+import { useLoaderData } from "react-router-dom";
 
 const JobDetails = () => {
   const { user } = useContext(AuthContext);
-  const form = useRef(); // Reference to the form element
+  const form = useRef();
+  const modalRef = useRef();
 
   const job = useLoaderData();
   const {
+    _id,
     pictureUrl,
     jobTitle,
     name,
@@ -20,10 +22,9 @@ const JobDetails = () => {
     jobPostingDate,
     applicationDeadline,
     salaryRange,
-    jobApplicantsNumber,
+    jobApplicantsNumber, // Add jobApplicantsNumber here
   } = job;
 
-  const [showApplicationModal, setShowApplicationModal] = useState(false);
   const [resumeLink, setResumeLink] = useState("");
   const [applicationSubmitted, setApplicationSubmitted] = useState(false);
 
@@ -48,7 +49,30 @@ const JobDetails = () => {
       });
       return;
     }
-    setShowApplicationModal(true);
+
+    // Open the modal
+    modalRef.current.showModal();
+  };
+
+  const handleCloseModal = () => {
+    // Close the modal
+    modalRef.current.close();
+  };
+
+  const handleApplicantAdd = () => {
+    fetch(`https://job-finder-server-tau.vercel.app/updateJobApplicants/${_id}`, {
+      method: "POST",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        // Update the jobApplicantsNumber in the state
+        job.jobApplicantsNumber = result.jobApplicantsNumber;
+        setApplicationSubmitted(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const sentEmail = () => {
@@ -59,14 +83,22 @@ const JobDetails = () => {
         form.current, // Reference to the form element
         "pBykjcJ8wlmCjaBjO" // Your EmailJS public key
       )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+      .then((result) => {
+        Swal.fire({
+          title: "Success!",
+          text: "You Have Received a Successful Job Application Email!",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Sending Email Failed!",
+          confirmButtonText: "Ok",
+        });
+      });
   };
 
   const handleSubmitApplication = () => {
@@ -75,7 +107,7 @@ const JobDetails = () => {
       userEmail: user.email,
       jobTitle: jobTitle,
       resumeLink: resumeLink,
-      job: {job}
+      job: job, // Use the job object directly
     };
 
     fetch("https://job-finder-server-tau.vercel.app/applyJob", {
@@ -90,12 +122,12 @@ const JobDetails = () => {
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
-            text: "You Have Applied this job Successfully",
+            text: "You Have Applied for this job Successfully",
             icon: "success",
             confirmButtonText: "Ok",
           });
-          setApplicationSubmitted(true);
-          setShowApplicationModal(false);
+          handleApplicantAdd();
+          handleCloseModal(); // Close the modal
           sentEmail(); // Send the email
         }
       });
@@ -122,29 +154,29 @@ const JobDetails = () => {
       ) : (
         <button
           className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4"
-          onClick={() => {
-            handleApplyClick();
-            document.getElementById("modal2123").showModal();
-          }}
+          onClick={handleApplyClick}
         >
           Apply
         </button>
       )}
 
-      {showApplicationModal && (
-        <dialog id="modal2123" className="modal modal-bottom sm:modal-middle">
+      {applicationSubmitted || (
+        <dialog
+          ref={modalRef}
+          className="modal modal-bottom sm:modal-middle"
+        >
           <div className="modal-box">
             <h3 className="font-bold text-lg">
               Fill out your application details:
             </h3>
-            <form ref={form} method="dialog"> {/* Form element with a ref */}
+            <form ref={form} method="dialog">
               <div className="mb-4">
                 <label htmlFor="name">Name: </label>
                 <input
                   type="text"
                   id="name"
                   defaultValue={user?.displayName}
-                  name="userName" // Name attribute for EmailJS
+                  name="userName"
                   className="w-full p-2 border"
                 />
               </div>
@@ -154,7 +186,7 @@ const JobDetails = () => {
                   type="text"
                   id="email"
                   defaultValue={user?.email}
-                  name="userEmail" // Name attribute for EmailJS
+                  name="userEmail"
                   className="w-full p-2 border"
                 />
               </div>
@@ -164,7 +196,7 @@ const JobDetails = () => {
                   type="text"
                   id="resume"
                   placeholder="Resume Link"
-                  name="resumeLink" // Name attribute for EmailJS
+                  name="resumeLink"
                   value={resumeLink}
                   onChange={(e) => setResumeLink(e.target.value)}
                   className="w-full p-2 border"
@@ -172,7 +204,9 @@ const JobDetails = () => {
               </div>
             </form>
             <div className="modal-action flex items-center">
-              <button className="btn">Close</button>
+              <button onClick={handleCloseModal} className="btn">
+                Close
+              </button>
               <button
                 className="btn bg-blue-500 text-white px-4 py-2 rounded-lg"
                 onClick={handleSubmitApplication}
