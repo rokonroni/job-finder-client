@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AllJobsTable from "../../components/AllJobsTable/AllJobsTable";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const AllJobs = () => {
   const allJobs = useLoaderData();
@@ -11,7 +12,10 @@ const AllJobs = () => {
   );
 
   return (
-    <div>
+    <div> 
+      <Helmet>
+      <title>Job Finder || All Jobs</title>
+    </Helmet>
       <h2 className="text-center text-4xl my-4 uppercase font-bold text-blue-500 underline ">All Jobs</h2>
       <div className="text-center">
         <div className=" join w-full px-5 lg:px-0 lg:w-1/2 flex-row items-center  pb-10">

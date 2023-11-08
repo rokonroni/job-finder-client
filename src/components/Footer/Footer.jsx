@@ -26,10 +26,18 @@ const Footer = () => {
         <a className="link link-hover">Press kit</a>
       </nav>
       <nav>
-        <header className="footer-title">Legal</header>
-        <a className="link link-hover">Terms of use</a>
-        <a className="link link-hover">Privacy policy</a>
-        <a className="link link-hover">Cookie policy</a>
+        <header className="footer-title">Contacts</header>
+        <fieldset className="form-control w-80">
+          <p>Email: contact@jobfinder.com</p>
+          <p>Phone: +01654821</p>
+      <label className="label">
+        <span className="label-text">Enter your email address to get notification</span>
+      </label> 
+      <div className="relative">
+        <input type="text" placeholder="contact@jobfinder.com" className="input input-bordered w-full pr-16" /> 
+        <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">Subscribe</button>
+      </div>
+    </fieldset>
       </nav>
     </footer>
     <aside className="text-center py-4  bg-base-200 text-base-content">
