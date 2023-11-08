@@ -14,7 +14,7 @@ const Banner = ({ handleSearchCategory }) => {
     handleSearchCategory(searchText);
   };
 
-  const backgroundImageUrl = "https://images.unsplash.com/photo-1593113630400-ea4288922497?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80";
+  const backgroundImageUrl = "https://images.unsplash.com/photo-1487528278747-ba99ed528ebc?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
   const bannerStyle = {
     backgroundImage: `url(${backgroundImageUrl})`,
@@ -29,15 +29,18 @@ const Banner = ({ handleSearchCategory }) => {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "rgba(255, 255, 255, 0.9)", // Adjust the overlay color and opacity here
+    backgroundColor: "rgba(255, 255, 255, 0.7)", // Adjust the overlay color and opacity here
   };
 
   return (
     <div className="h-[60vh] flex flex-col justify-center items-center text-center rounded-lg" style={bannerStyle}>
       <div style={overlayStyle}></div>
-      <h2 className="text-5xl mb-6 font-bold text-black z-10 pt-10 px-5">
-        Search your dream job in <span className="text-red-500">Job Finder</span>
-      </h2>
+      <h1 className="text-5xl mb-6 font-bold text-black z-10 pt-10 px-5">
+        Find Your Dream Job with <span className="text-red-500">Job Finder</span>
+      </h1>
+      <p className="text-xl text-gray-700 z-10 mb-6 px-5">
+        Explore a wide range of job opportunities and discover your perfect career path. Start your journey today.
+      </p>
       <div className="join w-full px-5 lg:px-0 lg:w-1/3 z-10 pb-10">
         <input
           className="input w-full input-bordered join-item focus:outline-none"

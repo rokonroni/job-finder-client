@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 import PropTypes from "prop-types";
 import { auth } from "../firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 const GoogleProvider = new GoogleAuthProvider();
@@ -50,14 +51,28 @@ const AuthProvider = ({ children }) => {
   // Setup observer
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+
+      const userEmail = currentUser?.email || user?.email;
+      const loggedUser = {email: userEmail}
       setUser(currentUser);
-      console.log(currentUser);
-      setLoading(false)
+      setLoading(false);
+      if (currentUser) {
+        axios.post("https://job-finder-server-tau.vercel.app/jwt",loggedUser,{withCredentials:true})
+        .then(res => {
+          console.log(res.data);
+        })
+      }
+      else{
+        axios.post("https://job-finder-server-tau.vercel.app/logout",loggedUser,{withCredentials:true})
+        .then(res => {
+          console.log(res.data);
+        })
+      }
     });
     return () => {
       unSubscribe();
     };
-  }, []);
+  }, [user?.email]);
 
   // value of AuthContext
   const AuthInfo = {

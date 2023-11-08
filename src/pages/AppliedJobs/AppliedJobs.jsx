@@ -13,7 +13,7 @@ const AppliedJobs = () => {
   const url = `https://job-finder-server-tau.vercel.app/myAppliedJobs?email=${user.email}`;
 
   useEffect(() => {
-    fetch(url)
+    fetch(url,{credentials: "include"})
       .then((res) => res.json())
       .then((data) => setMyAppliedJobs(data));
   }, [url]);

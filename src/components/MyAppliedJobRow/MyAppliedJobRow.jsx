@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 const MyAppliedJobRow = ({ appliedJob }) => {
   const job = appliedJob?.job;
   const {
-    name,
     jobTitle,
     jobCategory,
     jobPostingDate,

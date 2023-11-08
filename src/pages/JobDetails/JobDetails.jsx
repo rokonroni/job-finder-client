@@ -1,5 +1,5 @@
 import emailjs from "@emailjs/browser";
-import { useContext, useRef, useState, useEffect } from "react";
+import { useContext, useRef, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useLoaderData } from "react-router-dom";
@@ -14,12 +14,12 @@ const JobDetails = () => {
     _id,
     pictureUrl,
     jobTitle,
-    name,
-    userImage,
+    // name,
+    // userImage,
     userEmail,
-    jobCategory,
+    // jobCategory,
     jobDescription,
-    jobPostingDate,
+    // jobPostingDate,
     applicationDeadline,
     salaryRange,
     jobApplicantsNumber, // Add jobApplicantsNumber here
@@ -83,7 +83,7 @@ const JobDetails = () => {
         form.current, // Reference to the form element
         "pBykjcJ8wlmCjaBjO" // Your EmailJS public key
       )
-      .then((result) => {
+      .then(() => {
         Swal.fire({
           title: "Success!",
           text: "You Have Received a Successful Job Application Email!",
@@ -91,7 +91,7 @@ const JobDetails = () => {
           confirmButtonText: "Ok",
         });
       })
-      .catch((error) => {
+      .catch(() => {
         Swal.fire({
           icon: "error",
           title: "Oops...",
